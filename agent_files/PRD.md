@@ -100,3 +100,4 @@ Physical community is becoming harder to access: information about local organiz
 - **Do not expand scope**  
   Do not add features, details, or directions beyond what is explicitly requested.
 
+
