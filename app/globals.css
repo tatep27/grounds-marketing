@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../design-system/generated/tokens.css";
 
 :root {
   --background: #ffffff;

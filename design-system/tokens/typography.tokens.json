@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "source": "figma-mcp:get_variable_defs",
+    "figmaFileKey": "sFK3bVOYs06H0fnyrwx5uc",
+    "extractedFromNodeIds": [
+      "55:73"
+    ],
+    "extractedAt": "2025-12-16T05:04:26.168Z",
+    "notes": "All typography values are rewritten into $ref pointers into Base scale."
+  },
+  "tokens": {
+    "fontsize/headings/h1": {
+      "$ref": "scale/48"
+    },
+    "paragraph-spacing/headings/h1": {
+      "$ref": "scale/24"
+    },
+    "line-height/headings/h1": {
+      "$ref": "scale/52"
+    },
+    "fontsize/headings/h2": {
+      "$ref": "scale/40"
+    },
+    "paragraph-spacing/headings/h2": {
+      "$ref": "scale/20"
+    },
+    "line-height/headings/h2": {
+      "$ref": "scale/44"
+    },
+    "fontsize/headings/h3": {
+      "$ref": "scale/32"
+    },
+    "paragraph-spacing/headings/h3": {
+      "$ref": "scale/16"
+    },
+    "line-height/headings/h3": {
+      "$ref": "scale/36"
+    },
+    "fontsize/headings/h4": {
+      "$ref": "scale/28"
+    },
+    "paragraph-spacing/headings/h4": {
+      "$ref": "scale/12"
+    },
+    "line-height/headings/h4": {
+      "$ref": "scale/32"
+    },
+    "fontsize/headings/h5": {
+      "$ref": "scale/24"
+    },
+    "paragraph-spacing/headings/h5": {
+      "$ref": "scale/12"
+    },
+    "line-height/headings/h5": {
+      "$ref": "scale/28"
+    },
+    "fontsize/headings/h6": {
+      "$ref": "scale/20"
+    },
+    "paragraph-spacing/headings/h6": {
+      "$ref": "scale/8"
+    },
+    "line-height/headings/h6": {
+      "$ref": "scale/24"
+    },
+    "fontsize/body/large": {
+      "$ref": "scale/20"
+    },
+    "paragraph-spacing/body/large": {
+      "$ref": "scale/12"
+    },
+    "line-height/body/large": {
+      "$ref": "scale/24"
+    },
+    "fontsize/body/medium": {
+      "$ref": "scale/16"
+    },
+    "paragraph-spacing/body/medium": {
+      "$ref": "scale/8"
+    },
+    "line-height/body/medium": {
+      "$ref": "scale/20"
+    },
+    "fontsize/body/small": {
+      "$ref": "scale/12"
+    },
+    "paragraph-spacing/body/small": {
+      "$ref": "scale/4"
+    },
+    "line-height/body/small": {
+      "$ref": "scale/16"
+    }
+  }
+}

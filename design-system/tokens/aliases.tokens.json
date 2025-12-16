@@ -1,0 +1,256 @@
+{
+  "meta": {
+    "source": "figma-mcp:get_variable_defs",
+    "figmaFileKey": "sFK3bVOYs06H0fnyrwx5uc",
+    "extractedFromNodeIds": [
+      "56:74"
+    ],
+    "extractedAt": "2025-12-16T05:04:26.168Z",
+    "notes": "All alias values are rewritten into $ref pointers into Base."
+  },
+  "tokens": {
+    "color/surface/background/default": {
+      "$ref": "color/neutral/200"
+    },
+    "color/borders/primary/default": {
+      "$ref": "color/neutral/400"
+    },
+    "color/borders/error/light": {
+      "$ref": "color/red/300"
+    },
+    "color/borders/disabled/light": {
+      "$ref": "color/neutral/white"
+    },
+    "color/borders/information/light": {
+      "$ref": "color/blue/300"
+    },
+    "color/borders/success/light": {
+      "$ref": "color/green/300"
+    },
+    "color/borders/warning/light": {
+      "$ref": "color/orange/300"
+    },
+    "color/borders/error/default": {
+      "$ref": "color/red/500"
+    },
+    "color/borders/disabled/default": {
+      "$ref": "color/neutral/200"
+    },
+    "color/borders/information/default": {
+      "$ref": "color/blue/500"
+    },
+    "color/borders/success/default": {
+      "$ref": "color/green/500"
+    },
+    "color/borders/warning/default": {
+      "$ref": "color/orange/500"
+    },
+    "color/borders/error/dark": {
+      "$ref": "color/red/600"
+    },
+    "color/borders/disabled/dark": {
+      "$ref": "color/neutral/300"
+    },
+    "color/borders/information/dark": {
+      "$ref": "color/blue/600"
+    },
+    "color/borders/success/dark": {
+      "$ref": "color/green/700"
+    },
+    "color/borders/warning/dark": {
+      "$ref": "color/orange/700"
+    },
+    "color/surface/background/primary": {
+      "$ref": "color/neutral/white"
+    },
+    "color/borders/primary/active": {
+      "$ref": "color/forest/500"
+    },
+    "color/borders/secondary/default": {
+      "$ref": "color/ochre/300"
+    },
+    "color/surface/buttons/button-on": {
+      "$ref": "color/forest/500"
+    },
+    "color/icons/disabled/light": {
+      "$ref": "color/neutral/100"
+    },
+    "color/icons/error/light": {
+      "$ref": "color/red/300"
+    },
+    "color/icons/information/light": {
+      "$ref": "color/blue/300"
+    },
+    "color/icons/success/light": {
+      "$ref": "color/green/300"
+    },
+    "color/icons/warning/light": {
+      "$ref": "color/orange/300"
+    },
+    "color/icons/default/default": {
+      "$ref": "color/neutral/800"
+    },
+    "color/surface/buttons/button-hover": {
+      "$ref": "color/forest/700"
+    },
+    "color/icons/disabled/default": {
+      "$ref": "color/neutral/300"
+    },
+    "color/icons/error/default": {
+      "$ref": "color/red/500"
+    },
+    "color/icons/information/default": {
+      "$ref": "color/blue/500"
+    },
+    "color/icons/success/default": {
+      "$ref": "color/green/500"
+    },
+    "color/icons/warning/default": {
+      "$ref": "color/orange/500"
+    },
+    "color/icons/default/active": {
+      "$ref": "color/ochre/500"
+    },
+    "color/surface/background/secondary": {
+      "$ref": "color/forest/500"
+    },
+    "color/surface/buttons/button-disabled": {
+      "$ref": "color/neutral/200"
+    },
+    "color/icons/disabled/dark": {
+      "$ref": "color/neutral/500"
+    },
+    "color/icons/error/dark": {
+      "$ref": "color/red/700"
+    },
+    "color/icons/information/dark": {
+      "$ref": "color/blue/700"
+    },
+    "color/icons/success/dark": {
+      "$ref": "color/green/700"
+    },
+    "color/icons/warning/dark": {
+      "$ref": "color/orange/700"
+    },
+    "color/text/heading/default": {
+      "$ref": "color/neutral/900"
+    },
+    "color/text/body/default": {
+      "$ref": "color/neutral/800"
+    },
+    "color/text/body/white": {
+      "$ref": "color/neutral/white"
+    },
+    "color/text/heading/light": {
+      "$ref": "color/neutral/100"
+    },
+    "color/text/link/default": {
+      "$ref": "color/blue/400"
+    },
+    "color/text/link/hover": {
+      "$ref": "color/blue/600"
+    },
+    "color/text/link/visited": {
+      "$ref": "color/neutral/400"
+    },
+    "color/text/disabled/light": {
+      "$ref": "color/neutral/100"
+    },
+    "color/text/information/light": {
+      "$ref": "color/ochre/300"
+    },
+    "color/text/success/light": {
+      "$ref": "color/green/300"
+    },
+    "color/text/warning/light": {
+      "$ref": "color/orange/300"
+    },
+    "color/text/error/light": {
+      "$ref": "color/red/300"
+    },
+    "color/text/disabled/default": {
+      "$ref": "color/neutral/300"
+    },
+    "color/text/information/default": {
+      "$ref": "color/ochre/500"
+    },
+    "color/text/success/default": {
+      "$ref": "color/green/600"
+    },
+    "color/text/warning/default": {
+      "$ref": "color/orange/500"
+    },
+    "color/text/error/default": {
+      "$ref": "color/red/500"
+    },
+    "color/text/disabled/dark": {
+      "$ref": "color/neutral/500"
+    },
+    "color/text/information/dark": {
+      "$ref": "color/ochre/700"
+    },
+    "color/text/success/dark": {
+      "$ref": "color/green/700"
+    },
+    "color/text/warning/dark": {
+      "$ref": "color/orange/700"
+    },
+    "color/text/error/dark": {
+      "$ref": "color/red/700"
+    },
+    "sizes/spacing/sp-4": {
+      "$ref": "scale/4"
+    },
+    "sizes/spacing/none": {
+      "$ref": "scale/0"
+    },
+    "sizes/spacing/sp-8": {
+      "$ref": "scale/8"
+    },
+    "sizes/spacing/sp-16": {
+      "$ref": "scale/16"
+    },
+    "sizes/spacing/sp-24": {
+      "$ref": "scale/24"
+    },
+    "sizes/border/none": {
+      "$ref": "scale/0"
+    },
+    "sizes/radius/none": {
+      "$ref": "scale/0"
+    },
+    "sizes/radius/rd-4": {
+      "$ref": "scale/4"
+    },
+    "sizes/radius/rd-8": {
+      "$ref": "scale/8"
+    },
+    "sizes/radius/rd-16": {
+      "$ref": "scale/16"
+    },
+    "sizes/radius/rd-24": {
+      "$ref": "scale/24"
+    },
+    "sizes/radius/rd-32": {
+      "$ref": "scale/32"
+    },
+    "sizes/radius/rd-40": {
+      "$ref": "scale/40"
+    },
+    "sizes/radius/rd-200": {
+      "$ref": "scale/200"
+    },
+    "sizes/border/br-1": {
+      "$ref": "scale/1"
+    },
+    "sizes/border/br-2": {
+      "$ref": "scale/2"
+    },
+    "sizes/spacing/sp-32": {
+      "$ref": "scale/32"
+    },
+    "sizes/spacing/sp-40": {
+      "$ref": "scale/40"
+    }
+  }
+}
