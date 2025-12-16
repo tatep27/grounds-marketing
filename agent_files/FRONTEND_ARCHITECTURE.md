@@ -92,6 +92,59 @@ The design system is organized into three variable collections:
 
 ---
 
+## How the design system works (files + data flow)
+
+This repo uses a **three-layer token model** where **Base** is the single source of truth and both **Aliases** and **Typography** reference Base.
+
+### Source of truth (Figma)
+
+We use three dedicated “token bridge” frames in the Grounds Figma file so Figma MCP can reliably return the full variable sets referenced by each collection:
+
+- **Base frame**: `node-id=55-72` (node `55:72`)
+- **Alias frame**: `node-id=56-74` (node `56:74`)
+- **Typography frame**: `node-id=55-73` (node `55:73`)
+
+### Source files (checked-in)
+
+These are the canonical token sources in this repo:
+
+- `design-system/tokens/base.tokens.json`
+  - Contains **raw values** only (hex colors, scale numbers, font families, weights).
+- `design-system/tokens/aliases.tokens.json`
+  - Contains **no raw values**.
+  - Every token value is `{ "$ref": "<path-in-base>" }`.
+- `design-system/tokens/typography.tokens.json`
+  - Contains **no raw values**.
+  - Every token value is `{ "$ref": "scale/<n>" }` (and/or other Base type primitives if introduced later).
+
+### Generated output (runtime)
+
+- `design-system/generated/tokens.css`
+  - This is what the app actually consumes at runtime.
+  - It exposes CSS variables in three namespaces:
+    - `--base-*` (raw literals)
+    - `--alias-*` (`var(--base-...)` references only)
+    - `--typography-*` (`var(--base-...)` references only)
+
+### Build step (sync)
+
+The sync script regenerates `tokens.css` from the checked-in JSON sources and enforces the layering rules:
+
+- Script: `scripts/tokens/sync.mjs`
+- Command: `npm run tokens:sync`
+
+If an Alias or Typography token contains a raw value (instead of `$ref`), or if a `$ref` points to a Base token path that doesn’t exist, the sync script fails.
+
+### App wiring
+
+- `app/globals.css` imports `design-system/generated/tokens.css` immediately after Tailwind, making the CSS variables available everywhere.
+- Components should use:
+  - `var(--alias-...)` for semantic colors/surfaces/spacing/radius
+  - `var(--typography-...)` for font sizes/line heights/paragraph spacing
+- Components must not use `--base-*` directly (Base is for token definitions, not consumption).
+
+---
+
 ## Frontend execution rules (agent workflow)
 
 - Always ask before proceeding  
