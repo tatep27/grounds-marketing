@@ -4,6 +4,12 @@ import {
   getBasePalette,
   getTypographyTokens,
 } from "./preview-data";
+import { Container } from "../components/Container";
+import { Stack } from "../components/Stack";
+import { Row } from "../components/Row";
+import { Text } from "../components/Text";
+import { Button } from "../components/Button";
+import { Card } from "../components/Card";
 
 function Swatch({
   label,
@@ -243,6 +249,128 @@ export default async function PreviewPage() {
               lineHeight={t["line-height/body/small"]}
               paragraphSpacing={t["paragraph-spacing/body/small"]}
             />
+          </div>
+        </section>
+
+        {/* UI Components */}
+        <section className="space-y-3">
+          <div>
+            <h2 className="text-lg font-semibold">UI Components</h2>
+            <p className="text-sm text-black/60">
+              Reusable primitives built with Tailwind layout + alias/typography tokens.
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {/* Text Component */}
+            <Card>
+              <Stack gap="16">
+                <div className="text-sm font-medium text-black/70">Text Component</div>
+                <Stack gap="8">
+                  <Text as="h1" variant="h1" color="heading">Heading 1</Text>
+                  <Text as="h2" variant="h2" color="heading">Heading 2</Text>
+                  <Text as="h3" variant="h3" color="heading">Heading 3</Text>
+                  <Text as="p" variant="body-large" color="body">Body Large</Text>
+                  <Text as="p" variant="body-medium" color="body">Body Medium</Text>
+                  <Text as="p" variant="body-small" color="body">Body Small</Text>
+                  <Text as="p" variant="body-medium" color="disabled">Disabled Text</Text>
+                  <Text as="p" variant="body-medium" color="error">Error Text</Text>
+                  <Text as="p" variant="body-medium" color="information">Information Text</Text>
+                </Stack>
+              </Stack>
+            </Card>
+
+            {/* Button Component */}
+            <Card>
+              <Stack gap="16">
+                <div className="text-sm font-medium text-black/70">Button Component</div>
+                <Row gap="16" wrap>
+                  <Button variant="primary" size="small">Primary Small</Button>
+                  <Button variant="primary" size="medium">Primary Medium</Button>
+                  <Button variant="primary" size="large">Primary Large</Button>
+                </Row>
+                <Row gap="16" wrap>
+                  <Button variant="default" size="small">Default Small</Button>
+                  <Button variant="default" size="medium">Default Medium</Button>
+                  <Button variant="default" size="large">Default Large</Button>
+                </Row>
+                <Row gap="16" wrap>
+                  <Button disabled size="small">Disabled Small</Button>
+                  <Button disabled size="medium">Disabled Medium</Button>
+                  <Button disabled size="large">Disabled Large</Button>
+                </Row>
+              </Stack>
+            </Card>
+
+            {/* Layout Components: Container, Stack, Row */}
+            <Card>
+              <Stack gap="16">
+                <div className="text-sm font-medium text-black/70">Layout Components</div>
+                
+                <div>
+                  <Text as="p" variant="body-small" color="body" className="mb-2">Stack (vertical layout with gap):</Text>
+                  <div
+                    className="rounded-lg border border-black/10 p-4"
+                    style={{ backgroundColor: "var(--alias-color-surface-background-default)" }}
+                    suppressHydrationWarning
+                  >
+                    <Stack gap="8">
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 1</div>
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 2</div>
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 3</div>
+                    </Stack>
+                  </div>
+                </div>
+
+                <div>
+                  <Text as="p" variant="body-small" color="body" className="mb-2">Row (horizontal layout with gap):</Text>
+                  <div
+                    className="rounded-lg border border-black/10 p-4"
+                    style={{ backgroundColor: "var(--alias-color-surface-background-default)" }}
+                    suppressHydrationWarning
+                  >
+                    <Row gap="8" wrap>
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 1</div>
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 2</div>
+                      <div className="rounded bg-white px-3 py-2 text-sm">Item 3</div>
+                    </Row>
+                  </div>
+                </div>
+
+                <div>
+                  <Text as="p" variant="body-small" color="body" className="mb-2">Container (max-width with padding):</Text>
+                  <div
+                    className="rounded-lg border border-black/10 p-4"
+                    style={{ backgroundColor: "var(--alias-color-surface-background-default)" }}
+                    suppressHydrationWarning
+                  >
+                    <Container maxWidth="md" className="bg-white rounded py-2">
+                      <Text as="p" variant="body-small" color="body" className="text-center">
+                        Container content (max-width: md)
+                      </Text>
+                    </Container>
+                  </div>
+                </div>
+              </Stack>
+            </Card>
+
+            {/* Card Component */}
+            <Card>
+              <Stack gap="16">
+                <div className="text-sm font-medium text-black/70">Card Component</div>
+                <Row gap="16" wrap>
+                  <Card padding="16" className="flex-1 min-w-[200px]">
+                    <Text as="p" variant="body-small" color="body">Card with padding 16</Text>
+                  </Card>
+                  <Card padding="24" className="flex-1 min-w-[200px]">
+                    <Text as="p" variant="body-small" color="body">Card with padding 24</Text>
+                  </Card>
+                  <Card padding="32" className="flex-1 min-w-[200px]">
+                    <Text as="p" variant="body-small" color="body">Card with padding 32</Text>
+                  </Card>
+                </Row>
+              </Stack>
+            </Card>
           </div>
         </section>
       </div>

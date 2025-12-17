@@ -1,0 +1,40 @@
+import { ReactNode } from "react";
+
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+  as?: "div" | "article" | "section";
+  padding?: "none" | "4" | "8" | "16" | "24" | "32" | "40";
+  radius?: "none" | "4" | "8" | "16" | "24";
+}
+
+export function Card({
+  children,
+  className = "",
+  as: Component = "div",
+  padding = "24",
+  radius = "8",
+}: CardProps) {
+  const paddingVar =
+    padding === "none" ? "0" : `var(--alias-sizes-spacing-sp-${padding})`;
+  const radiusVar =
+    radius === "none" ? "0" : `var(--alias-sizes-radius-rd-${radius})`;
+
+  return (
+    <Component
+      className={className}
+      style={{
+        backgroundColor: "var(--alias-color-surface-background-primary)",
+        borderColor: "var(--alias-color-borders-primary-default)",
+        borderWidth: "var(--alias-sizes-border-br-1)",
+        borderStyle: "solid",
+        borderRadius: radiusVar,
+        padding: paddingVar,
+      }}
+      suppressHydrationWarning
+    >
+      {children}
+    </Component>
+  );
+}
+
