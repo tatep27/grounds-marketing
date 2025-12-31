@@ -1,6 +1,6 @@
-import { ReactNode, CSSProperties } from "react";
+import { ReactNode, CSSProperties, HTMLAttributes } from "react";
 
-interface TextProps {
+interface TextProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   className?: string;
   as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "em" | "strong";
@@ -17,7 +17,7 @@ interface TextProps {
     | "body-medium"
     | "body-small";
   color?: "heading" | "body" | "white" | "disabled" | "error" | "information";
-  weight?: 300 | 400 | 600 | 700;
+  weight?: 300 | 400 | 500 | 600 | 700;
   style?: CSSProperties;
 }
 
@@ -96,6 +96,7 @@ export function Text({
   color = "body",
   weight,
   style,
+  ...restProps
 }: TextProps) {
   const typographyStyle = variantStyles[variant];
   const colorValue = colorTokens[color];
@@ -110,6 +111,7 @@ export function Text({
         ...style,
       }}
       suppressHydrationWarning
+      {...restProps}
     >
       {children}
     </Component>
