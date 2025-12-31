@@ -26,6 +26,7 @@
     "color/ochre/700": "#7a5d1c",
     "color/ochre/800": "#523e12",
     "color/ochre/900": "#291f09",
+    "color/brown/custom": "#745A2C",
     "color/neutral/500": "#817d75",
     "color/neutral/400": "#9a9791",
     "color/neutral/300": "#b3b1ac",
@@ -85,6 +86,7 @@
     "scale/200": "200",
     "scale/160": "160",
     "scale/120": "120",
+    "scale/96": "96",
     "scale/80": "80",
     "scale/64": "64",
     "scale/52": "52",
@@ -97,6 +99,7 @@
     "scale/24": "24",
     "scale/20": "20",
     "scale/16": "16",
+    "scale/14": "14",
     "scale/12": "12",
     "scale/8": "8",
     "scale/4": "4",
@@ -105,7 +108,7 @@
     "scale/0": "0",
     "type/font-weight/regular": "regular",
     "type/font-family/body": "Inter",
-    "type/font-family/headings": "Tenor  Sans",
+    "type/font-family/headings": "Merriweather",
     "type/font-weight/semibold": "semibold",
     "type/font-weight/bold": "bold"
   }

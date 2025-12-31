@@ -112,7 +112,7 @@
       "$ref": "color/ochre/500"
     },
     "color/surface/background/secondary": {
-      "$ref": "color/forest/500"
+      "$ref": "color/forest/200"
     },
     "color/surface/buttons/button-disabled": {
       "$ref": "color/neutral/200"
@@ -140,6 +140,9 @@
     },
     "color/text/body/white": {
       "$ref": "color/neutral/white"
+    },
+    "color/text/brand/default": {
+      "$ref": "color/forest/500"
     },
     "color/text/heading/light": {
       "$ref": "color/neutral/100"
@@ -209,6 +212,9 @@
     },
     "sizes/spacing/sp-16": {
       "$ref": "scale/16"
+    },
+    "sizes/spacing/sp-14": {
+      "$ref": "scale/14"
     },
     "sizes/spacing/sp-24": {
       "$ref": "scale/24"

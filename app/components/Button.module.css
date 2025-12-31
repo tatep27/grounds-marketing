@@ -1,0 +1,83 @@
+/* Base button styles */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--alias-sizes-radius-rd-16);
+  border-width: var(--alias-sizes-border-br-1);
+  border-style: solid;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Primary variant */
+.primary {
+  background-color: var(--alias-color-surface-buttons-button-on);
+  color: var(--alias-color-text-body-white);
+  border-color: var(--alias-color-borders-primary-active);
+}
+
+.primary:hover:not(:disabled) {
+  background-color: var(--alias-color-surface-buttons-button-hover);
+}
+
+.primary:disabled {
+  background-color: var(--alias-color-surface-buttons-button-disabled);
+  color: var(--alias-color-text-disabled-default);
+  border-color: var(--alias-color-borders-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Default variant */
+.default {
+  background-color: var(--alias-color-surface-background-primary);
+  color: var(--alias-color-text-body-default);
+  border-color: var(--alias-color-borders-primary-default);
+}
+
+.default:hover:not(:disabled) {
+  border-color: var(--alias-color-borders-primary-hover);
+}
+
+.default:disabled {
+  background-color: var(--alias-color-surface-buttons-button-disabled);
+  color: var(--alias-color-text-disabled-default);
+  border-color: var(--alias-color-borders-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Ochre variant */
+.ochre {
+  background-color: var(--base-color-ochre-500);
+  color: var(--alias-color-text-body-white);
+  border-color: var(--base-color-ochre-500);
+}
+
+.ochre:hover:not(:disabled) {
+  background-color: var(--base-color-ochre-600);
+  border-color: var(--base-color-ochre-600);
+}
+
+.ochre:disabled {
+  background-color: var(--alias-color-surface-buttons-button-disabled);
+  color: var(--alias-color-text-disabled-default);
+  border-color: var(--alias-color-borders-disabled-default);
+  cursor: not-allowed;
+}
+
+/* Size variants */
+.small {
+  padding: var(--alias-sizes-spacing-sp-8) var(--alias-sizes-spacing-sp-16);
+  font-size: var(--typography-fontsize-body-small);
+}
+
+.medium {
+  padding: var(--alias-sizes-spacing-sp-16) var(--alias-sizes-spacing-sp-32);
+  font-size: var(--typography-fontsize-body-medium);
+}
+
+.large {
+  padding: var(--alias-sizes-spacing-sp-24) var(--alias-sizes-spacing-sp-40);
+  font-size: var(--typography-fontsize-body-large);
+}
+

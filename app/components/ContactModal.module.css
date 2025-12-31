@@ -1,0 +1,137 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--alias-sizes-spacing-sp-16);
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal container */
+.modal {
+  background-color: var(--alias-color-surface-background-primary);
+  border-radius: var(--alias-sizes-radius-rd-16);
+  padding: var(--alias-sizes-spacing-sp-32);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form elements */
+.label {
+  display: block;
+  margin-bottom: var(--alias-sizes-spacing-sp-8);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: var(--alias-sizes-spacing-sp-16);
+  border: 1px solid var(--alias-color-borders-primary-default);
+  border-radius: var(--alias-sizes-radius-rd-8);
+  font-family: var(--base-type-font-family-body);
+  font-size: var(--typography-fontsize-body-medium);
+  line-height: var(--typography-line-height-body-medium);
+  color: var(--alias-color-text-body-default);
+  background-color: var(--alias-color-surface-background-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--alias-color-text-disabled-default);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--alias-color-borders-primary-active);
+  box-shadow: 0 0 0 3px var(--alias-color-surface-background-secondary);
+}
+
+.input[aria-invalid="true"],
+.textarea[aria-invalid="true"] {
+  border-color: var(--base-color-red-500);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Checkbox */
+.checkboxContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--alias-sizes-spacing-sp-8);
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  cursor: pointer;
+  accent-color: var(--alias-color-surface-buttons-button-on);
+}
+
+.checkboxLabel {
+  cursor: pointer;
+  flex: 1;
+  user-select: none;
+}
+
+/* Button group */
+.buttonGroup {
+  display: flex;
+  gap: var(--alias-sizes-spacing-sp-16);
+  justify-content: flex-end;
+  margin-top: var(--alias-sizes-spacing-sp-8);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .modal {
+    padding: var(--alias-sizes-spacing-sp-24);
+  }
+
+  .buttonGroup {
+    flex-direction: column-reverse;
+    gap: var(--alias-sizes-spacing-sp-8);
+  }
+
+  .buttonGroup button {
+    width: 100%;
+  }
+}
+

@@ -1,10 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 
 interface TextProps {
   children: ReactNode;
   className?: string;
   as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "em" | "strong";
   variant?:
+    | "hero"
+    | "title"
     | "h1"
     | "h2"
     | "h3"
@@ -16,9 +18,20 @@ interface TextProps {
     | "body-small";
   color?: "heading" | "body" | "white" | "disabled" | "error" | "information";
   weight?: 300 | 400 | 600 | 700;
+  style?: CSSProperties;
 }
 
 const variantStyles = {
+  hero: {
+    fontFamily: "var(--base-type-font-family-headings)",
+    fontSize: "var(--typography-fontsize-headings-hero)",
+    lineHeight: "var(--typography-line-height-headings-hero)",
+  },
+  title: {
+    fontFamily: "var(--base-type-font-family-headings)",
+    fontSize: "var(--typography-fontsize-headings-title)",
+    lineHeight: "var(--typography-line-height-headings-title)",
+  },
   h1: {
     fontFamily: "var(--base-type-font-family-headings)",
     fontSize: "var(--typography-fontsize-headings-h1)",
@@ -82,6 +95,7 @@ export function Text({
   variant = "body-medium",
   color = "body",
   weight,
+  style,
 }: TextProps) {
   const typographyStyle = variantStyles[variant];
   const colorValue = colorTokens[color];
@@ -93,6 +107,7 @@ export function Text({
         ...typographyStyle,
         color: colorValue,
         fontWeight: weight,
+        ...style,
       }}
       suppressHydrationWarning
     >

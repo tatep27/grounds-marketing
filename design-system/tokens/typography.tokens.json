@@ -9,14 +9,32 @@
     "notes": "All typography values are rewritten into $ref pointers into Base scale."
   },
   "tokens": {
+    "fontsize/headings/hero": {
+      "$ref": "scale/80"
+    },
+    "paragraph-spacing/headings/hero": {
+      "$ref": "scale/32"
+    },
+    "line-height/headings/hero": {
+      "$ref": "scale/80"
+    },
+    "fontsize/headings/title": {
+      "$ref": "scale/80"
+    },
+    "paragraph-spacing/headings/title": {
+      "$ref": "scale/32"
+    },
+    "line-height/headings/title": {
+      "$ref": "scale/96"
+    },
     "fontsize/headings/h1": {
-      "$ref": "scale/48"
+      "$ref": "scale/64"
     },
     "paragraph-spacing/headings/h1": {
       "$ref": "scale/24"
     },
     "line-height/headings/h1": {
-      "$ref": "scale/52"
+      "$ref": "scale/80"
     },
     "fontsize/headings/h2": {
       "$ref": "scale/40"

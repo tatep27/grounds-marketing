@@ -1,8 +1,7 @@
-import Link from "next/link";
 import { Container } from "../components/Container";
 import { Stack } from "../components/Stack";
-import { Row } from "../components/Row";
 import { Text } from "../components/Text";
+import { NavBar } from "../components/NavBar";
 
 export default function About() {
   return (
@@ -13,33 +12,7 @@ export default function About() {
       }}
       suppressHydrationWarning
     >
-      {/* Nav */}
-      <nav
-        style={{
-          backgroundColor: "var(--alias-color-surface-background-default)",
-        }}
-        suppressHydrationWarning
-      >
-        <Container>
-          <Row justify="between" align="center" className="py-6">
-            <Text as="span" variant="body-large" weight={600} color="heading">
-              Grounds
-            </Text>
-            <Row gap="32">
-              <Link href="/" style={{ textDecoration: "none" }}>
-                <Text as="span" variant="body-medium" color="body">
-                  Home
-                </Text>
-              </Link>
-              <Link href="/about" style={{ textDecoration: "none" }}>
-                <Text as="span" variant="body-medium" color="body">
-                  About
-                </Text>
-              </Link>
-            </Row>
-          </Row>
-        </Container>
-      </nav>
+      <NavBar />
 
       {/* Content */}
       <Container as="section" className="py-20">

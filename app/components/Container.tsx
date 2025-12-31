@@ -1,10 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode, CSSProperties } from "react";
 
 interface ContainerProps {
   children: ReactNode;
   className?: string;
   as?: "div" | "section" | "article" | "main";
   maxWidth?: "sm" | "md" | "lg" | "xl" | "full";
+  style?: CSSProperties;
 }
 
 const maxWidthClasses = {
@@ -20,6 +21,7 @@ export function Container({
   className = "",
   as: Component = "div",
   maxWidth = "lg",
+  style,
 }: ContainerProps) {
   return (
     <Component
@@ -27,6 +29,7 @@ export function Container({
       style={{
         paddingLeft: "var(--alias-sizes-spacing-sp-40)",
         paddingRight: "var(--alias-sizes-spacing-sp-40)",
+        ...style,
       }}
       suppressHydrationWarning
     >

@@ -11,6 +11,7 @@
   --base-color-blue-700: #3f5463;
   --base-color-blue-800: #2a3842;
   --base-color-blue-900: #151c21;
+  --base-color-brown-custom: #745A2C;
   --base-color-forest-100: #dde2db;
   --base-color-forest-200: #bac5b7;
   --base-color-forest-300: #98a792;
@@ -80,6 +81,7 @@
   --base-scale-1: 1px;
   --base-scale-12: 12px;
   --base-scale-120: 120px;
+  --base-scale-14: 14px;
   --base-scale-16: 16px;
   --base-scale-160: 160px;
   --base-scale-2: 2px;
@@ -97,8 +99,9 @@
   --base-scale-64: 64px;
   --base-scale-8: 8px;
   --base-scale-80: 80px;
+  --base-scale-96: 96px;
   --base-type-font-family-body: "Inter";
-  --base-type-font-family-headings: "Tenor  Sans";
+  --base-type-font-family-headings: "Merriweather";
   --base-type-font-weight-bold: 700;
   --base-type-font-weight-regular: 400;
   --base-type-font-weight-semibold: 600;
@@ -143,12 +146,13 @@
   --alias-color-icons-warning-light: var(--base-color-orange-300);
   --alias-color-surface-background-default: var(--base-color-neutral-200);
   --alias-color-surface-background-primary: var(--base-color-neutral-white);
-  --alias-color-surface-background-secondary: var(--base-color-forest-500);
+  --alias-color-surface-background-secondary: var(--base-color-forest-200);
   --alias-color-surface-buttons-button-disabled: var(--base-color-neutral-200);
   --alias-color-surface-buttons-button-hover: var(--base-color-forest-700);
   --alias-color-surface-buttons-button-on: var(--base-color-forest-500);
   --alias-color-text-body-default: var(--base-color-neutral-800);
   --alias-color-text-body-white: var(--base-color-neutral-white);
+  --alias-color-text-brand-default: var(--base-color-forest-500);
   --alias-color-text-disabled-dark: var(--base-color-neutral-500);
   --alias-color-text-disabled-default: var(--base-color-neutral-300);
   --alias-color-text-disabled-light: var(--base-color-neutral-100);
@@ -181,6 +185,7 @@
   --alias-sizes-radius-rd-40: var(--base-scale-40);
   --alias-sizes-radius-rd-8: var(--base-scale-8);
   --alias-sizes-spacing-none: var(--base-scale-0);
+  --alias-sizes-spacing-sp-14: var(--base-scale-14);
   --alias-sizes-spacing-sp-16: var(--base-scale-16);
   --alias-sizes-spacing-sp-24: var(--base-scale-24);
   --alias-sizes-spacing-sp-32: var(--base-scale-32);
@@ -191,24 +196,28 @@
   /* =========================
    * Typography — must reference Base scale/type only
    * ========================= */
-  --typography-fontsize-body-large: var(--base-scale-20);
+  --typography-fontsize-body-large: clamp(1rem, 2vw, 1.25rem);
   --typography-fontsize-body-medium: var(--base-scale-16);
   --typography-fontsize-body-small: var(--base-scale-12);
-  --typography-fontsize-headings-h1: var(--base-scale-48);
+  --typography-fontsize-headings-h1: var(--base-scale-64);
   --typography-fontsize-headings-h2: var(--base-scale-40);
   --typography-fontsize-headings-h3: var(--base-scale-32);
   --typography-fontsize-headings-h4: var(--base-scale-28);
   --typography-fontsize-headings-h5: var(--base-scale-24);
   --typography-fontsize-headings-h6: var(--base-scale-20);
-  --typography-line-height-body-large: var(--base-scale-24);
+  --typography-fontsize-headings-hero: var(--base-scale-80);
+  --typography-fontsize-headings-title: clamp(3rem, 7vw, 5rem);
+  --typography-line-height-body-large: clamp(1.5rem, 2.5vw, 1.75rem);
   --typography-line-height-body-medium: var(--base-scale-20);
   --typography-line-height-body-small: var(--base-scale-16);
-  --typography-line-height-headings-h1: var(--base-scale-52);
+  --typography-line-height-headings-h1: var(--base-scale-80);
   --typography-line-height-headings-h2: var(--base-scale-44);
   --typography-line-height-headings-h3: var(--base-scale-36);
   --typography-line-height-headings-h4: var(--base-scale-32);
   --typography-line-height-headings-h5: var(--base-scale-28);
   --typography-line-height-headings-h6: var(--base-scale-24);
+  --typography-line-height-headings-hero: var(--base-scale-80);
+  --typography-line-height-headings-title: clamp(3.5rem, 8vw, 6rem);
   --typography-paragraph-spacing-body-large: var(--base-scale-12);
   --typography-paragraph-spacing-body-medium: var(--base-scale-8);
   --typography-paragraph-spacing-body-small: var(--base-scale-4);
@@ -218,4 +227,6 @@
   --typography-paragraph-spacing-headings-h4: var(--base-scale-12);
   --typography-paragraph-spacing-headings-h5: var(--base-scale-12);
   --typography-paragraph-spacing-headings-h6: var(--base-scale-8);
+  --typography-paragraph-spacing-headings-hero: var(--base-scale-32);
+  --typography-paragraph-spacing-headings-title: var(--base-scale-32);
 }
