@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Merriweather } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import { FontDebugger } from "./components/FontDebugger";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
       >
         <FontDebugger />
         {children}
+        <Analytics />
       </body>
     </html>
   );

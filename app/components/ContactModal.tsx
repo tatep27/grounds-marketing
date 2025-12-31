@@ -19,6 +19,9 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const [joinWaitlist, setJoinWaitlist] = useState(false);
   const [errors, setErrors] = useState<{ name?: string; email?: string; message?: string }>({});
   const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [submitError, setSubmitError] = useState("");
 
   // Handle mounting for portal
   useEffect(() => {
@@ -51,7 +54,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const newErrors: { name?: string; email?: string; message?: string } = {};
 
@@ -75,23 +78,48 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
       return;
     }
 
-    // Log to console
-    console.log({
-      name: name.trim(),
-      email: email.trim(),
-      message: message.trim(),
-      joinWaitlist,
-      timestamp: new Date().toISOString(),
-      recipientEmail: "tatepark@gse.harvard.edu",
-    });
+    // Submit to API
+    setIsSubmitting(true);
+    setSubmitError("");
 
-    // Clear form and close
-    setName("");
-    setEmail("");
-    setMessage("");
-    setJoinWaitlist(false);
-    setErrors({});
-    onClose();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          message: message.trim(),
+          joinWaitlist,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      // Show success
+      setSubmitSuccess(true);
+      
+      // Clear form and close after delay
+      setTimeout(() => {
+        setName("");
+        setEmail("");
+        setMessage("");
+        setJoinWaitlist(false);
+        setErrors({});
+        setSubmitSuccess(false);
+        onClose();
+      }, 2000);
+    } catch (error) {
+      setSubmitError(error instanceof Error ? error.message : 'Failed to send message');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent) => {
@@ -218,6 +246,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   checked={joinWaitlist}
                   onChange={(e) => setJoinWaitlist(e.target.checked)}
                   className={styles.checkbox}
+                  disabled={isSubmitting}
                 />
                 <label htmlFor="join-waitlist" className={styles.checkboxLabel}>
                   <Text as="span" variant="body-medium" color="body">
@@ -226,12 +255,37 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                 </label>
               </div>
 
+              {/* Success Message */}
+              {submitSuccess && (
+                <Text
+                  as="p"
+                  variant="body-medium"
+                  style={{ color: "var(--base-color-forest-600)", textAlign: "center" }}
+                  role="alert"
+                >
+                  ✓ Message sent successfully!
+                </Text>
+              )}
+
+              {/* Error Message */}
+              {submitError && (
+                <Text
+                  as="p"
+                  variant="body-medium"
+                  style={{ color: "var(--base-color-red-500)", textAlign: "center" }}
+                  role="alert"
+                >
+                  {submitError}
+                </Text>
+              )}
+
               <div className={styles.buttonGroup}>
                 <Button
                   type="button"
                   variant="default"
                   size="medium"
                   onClick={onClose}
+                  disabled={isSubmitting}
                   style={{
                     fontFamily: "var(--base-type-font-family-headings)",
                     fontSize: 14,
@@ -244,13 +298,14 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
                   type="submit"
                   variant="primary"
                   size="medium"
+                  disabled={isSubmitting || submitSuccess}
                   style={{
                     fontFamily: "var(--base-type-font-family-headings)",
                     fontSize: 14,
                     fontWeight: 400,
                   }}
                 >
-                  Send message
+                  {isSubmitting ? "Sending..." : submitSuccess ? "Sent!" : "Send message"}
                 </Button>
               </div>
             </Stack>

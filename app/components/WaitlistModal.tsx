@@ -17,6 +17,8 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [mounted, setMounted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   // Handle mounting for portal
   useEffect(() => {
@@ -49,7 +51,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -63,18 +65,43 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
       return;
     }
 
-    // Log to console
-    console.log({
-      email: email.trim(),
-      message: message.trim() || null,
-      timestamp: new Date().toISOString(),
-    });
+    // Submit to API
+    setIsSubmitting(true);
 
-    // Clear form and close
-    setEmail("");
-    setMessage("");
-    setError("");
-    onClose();
+    try {
+      const response = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.trim(),
+          message: message.trim() || undefined,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to join waitlist');
+      }
+
+      // Show success
+      setSubmitSuccess(true);
+      
+      // Clear form and close after delay
+      setTimeout(() => {
+        setEmail("");
+        setMessage("");
+        setError("");
+        setSubmitSuccess(false);
+        onClose();
+      }, 2000);
+    } catch (error) {
+      setError(error instanceof Error ? error.message : 'Failed to join waitlist');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent) => {
@@ -143,8 +170,21 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   className={styles.textarea}
                   placeholder="Tell us what you're excited about..."
                   rows={4}
+                  disabled={isSubmitting}
                 />
               </div>
+
+              {/* Success Message */}
+              {submitSuccess && (
+                <Text
+                  as="p"
+                  variant="body-medium"
+                  style={{ color: "var(--base-color-forest-600)", textAlign: "center" }}
+                  role="alert"
+                >
+                  ✓ Successfully joined the waitlist!
+                </Text>
+              )}
 
               <div className={styles.buttonGroup}>
                 <Button
@@ -152,6 +192,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   variant="default"
                   size="medium"
                   onClick={onClose}
+                  disabled={isSubmitting}
                   style={{
                     fontFamily: "var(--base-type-font-family-headings)",
                     fontSize: 14,
@@ -164,13 +205,14 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   type="submit"
                   variant="primary"
                   size="medium"
+                  disabled={isSubmitting || submitSuccess}
                   style={{
                     fontFamily: "var(--base-type-font-family-headings)",
                     fontSize: 14,
                     fontWeight: 400,
                   }}
                 >
-                  Join waitlist
+                  {isSubmitting ? "Joining..." : submitSuccess ? "Joined!" : "Join waitlist"}
                 </Button>
               </div>
             </Stack>
